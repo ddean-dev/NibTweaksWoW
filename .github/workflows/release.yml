@@ -20,5 +20,5 @@ jobs:
       uses: ncipollo/release-action@v1
       with:
         artifacts: "NibTweaks.zip"
-        tag: ${{ github.ref_name }}
+        tag: ${{ github.sha }}
         name: "New Release"
