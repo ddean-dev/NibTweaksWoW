@@ -17,11 +17,8 @@ jobs:
         filename: 'NibTweaks.zip'
         exclusions: '*.git*'
     - name: Create Release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      uses: ncipollo/release-action@v1
       with:
-        tag_name: ${{ github.ref_name }}
-        release_name: New Release
-        draft: false
-        prerelease: false
+        artifacts: "NibTweaks.zip"
+        tag: ${{ github.ref_name }}
+        name: "New Release"
