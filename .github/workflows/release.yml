@@ -22,3 +22,7 @@ jobs:
         type: 'zip'
         filename: 'NibTweaks.zip'
         exclusions: '*.git*'
+    - uses: actions/checkout@v2
+    - uses: ncipollo/release-action@v1
+      with:
+        artifacts: "NibTweaks.zip"
