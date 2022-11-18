@@ -12,8 +12,8 @@ jobs:
       GITHUB_OAUTH: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Clone project
-        uses: actions/checkout@latest
+        uses: actions/checkout@v2
         with:
           fetch-depth: 0
       - name: Package and release
-        uses: BigWigsMods/packager@latest
+        uses: BigWigsMods/packager@v2
