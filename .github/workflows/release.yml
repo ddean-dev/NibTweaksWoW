@@ -1,27 +1,19 @@
-name: Release
+name: Package and release
 on:
   push:
-    branches: [ "main" ]
-  workflow_dispatch:
+    branches:
+      - main
+    tags:
+      - "**"
 jobs:
-  build:
+  release:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
+    env:
+      GITHUB_OAUTH: ${{ secrets.GITHUB_TOKEN }}
     steps:
-    - uses: actions/checkout@master
-    - name: Archive Release
-      uses: thedoctor0/zip-release@main
-      with:
-        type: 'zip'
-        filename: 'NibTweaks.zip'
-        exclusions: '*.git*'
-    - name: Set outputs
-      id: vars
-      run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
-    - name: Create Release
-      uses: ncipollo/release-action@v1
-      with:
-        artifacts: "NibTweaks.zip"
-        tag: ${{ steps.vars.outputs.sha_short }}
-        name: "New Release"
+      - name: Clone project
+        uses: actions/checkout@latest
+        with:
+          fetch-depth: 0
+      - name: Package and release
+        uses: BigWigsMods/packager@latest

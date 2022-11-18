@@ -1,4 +1,6 @@
 ## Interface: 100000
 ## Title: NibTweaks
+## Version: @project-version@
+## DefaultState: enabled
 ## SavedVariables: NibTweaksDB
 NibTweaks.lua

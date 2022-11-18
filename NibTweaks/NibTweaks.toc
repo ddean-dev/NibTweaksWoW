@@ -1,4 +1,0 @@
-## Interface: 100000
-## Title: NibTweaks
-## SavedVariables: NibTweaksDB
-NibTweaks.lua
